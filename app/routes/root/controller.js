@@ -1,5 +1,5 @@
 module.exports = (deps) => {
-  const controller = {
+  return {
     root (req, res) {
       res.status(200).json({
         'success': true,
@@ -7,5 +7,4 @@ module.exports = (deps) => {
       })
     }
   }
-  return controller
 }

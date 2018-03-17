@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-module.exports = mongoose.model('Root', new mongoose.Schema(
+module.exports = mongoose.model('Sample', new mongoose.Schema(
   {
     'label': String
   }

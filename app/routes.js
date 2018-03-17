@@ -7,7 +7,7 @@ module.exports = (deps) => {
   ]
 
   routes.forEach(route => {
-    router.use(route[0], require(`app/${route[1]}/route`)(deps))
+    router.use(route[0], require(`app/routes/${route[1]}`)(deps))
   })
   return router
 }
