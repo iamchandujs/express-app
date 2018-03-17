@@ -4,8 +4,7 @@ module.exports = (deps) => {
 
   const routes = [
     // method, path, controller name
-    ['GET', '/', controller.root],
-    ['GET', '/new', controller.create]
+    ['GET', '/', controller.root]
   ]
 
   routes.forEach(route => {

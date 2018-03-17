@@ -4,14 +4,15 @@ module.exports = (config) => {
   const app = express()
   const bodyParser = require('body-parser')
   const cors = require('cors')
+  const path = require('path')
 
-  const firebaseServiceAccount = require('app/firebase.json')
-  const firebase = require('firebase-admin')
-  firebase.initializeApp({
-    'credential': firebase.credential.cert(firebaseServiceAccount),
-    'databaseURL': ''
-  })
-  const firebaseMiddleware = require('express-firebase-middleware')
+  // const firebaseServiceAccount = require('app/firebase.json')
+  // const firebase = require('firebase-admin')
+  // firebase.initializeApp({
+  //   'credential': firebase.credential.cert(firebaseServiceAccount),
+  //   'databaseURL': ''
+  // })
+  // const firebaseMiddleware = require('express-firebase-middleware')
 
   app.use(bodyParser.urlencoded({ 'extended': true }))
   app.use(bodyParser.json())
@@ -30,10 +31,16 @@ module.exports = (config) => {
     next()
   })
 
-  const routes = require('app/routes')({express, firebase, mongoose})
+  const routes = require('app/routes')({express, mongoose})
+
   if (config.auth) {
-    app.use('/', firebaseMiddleware.auth)
+    // app.use('/', firebaseMiddleware.auth)
   }
+
+  // API Documentation
+  app.use('/api', express.static(path.join(__dirname, './api')))
+  app.use('/api.json', express.static(path.join(__dirname, './api.json')))
+
   app.use('/', routes)
 
   return app
