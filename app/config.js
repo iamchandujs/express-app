@@ -1,18 +1,12 @@
-const PRODUCTION = process.env.NODE_ENV === 'production'
 const config = {
   express: {
-    port: process.env.EXPRESS_PORT || 3000,
-    ip: '127.0.0.1'
+    port: 3000
   },
-  mongodb: {
-    port: process.env.MONGODB_PORT || 27017,
-    host: process.env.MONGODB_HOST || 'localhost',
-    db: 'database'
-  },
+  mongodb: 'mongodb://localhost:27017/database',
   auth: false
 }
-if (PRODUCTION) {
-  // do production stuff here
-}
+
+// const env = require('../.env.json')
+// console.log(env)
 
 module.exports = config

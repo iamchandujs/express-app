@@ -1,3 +1,5 @@
+// const Sample = require('app/models/Sample')()
+
 module.exports = (deps) => {
   return {
     root (req, res) {

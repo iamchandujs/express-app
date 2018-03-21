@@ -1,8 +1,8 @@
 module.exports = (config) => {
   const mongoose = require('mongoose')
-  mongoose.connect(`mongodb://${config.host}:${config.port}/${config.db}`)
+  mongoose.connect(config)
     .then(() => {
-      console.log(`Mongodb connected to '${config.db}'!`)
+      console.log('Mongodb connected!')
     })
     .catch((error) => {
       console.log('Mongodb error: ', error)
