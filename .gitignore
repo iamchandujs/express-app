@@ -1,1 +1,2 @@
-.env.json
+.env
+node_modules
