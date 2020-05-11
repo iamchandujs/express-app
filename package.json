@@ -1,9 +1,9 @@
 {
-  "name": "nmg-boilerplate",
+  "name": "node-mongo-gql",
   "version": "2.0.0",
   "description": "NodeJS + TypeScript + MongoDB + GraphQL Boilerplate",
-  "main": "server.js",
-  "repository": "git@github.com:ctrleffive/nmg-boilerplate.git",
+  "main": "app/server.js",
+  "repository": "git@github.com:ctrleffive/node-mongo-gql.git",
   "author": "Chandu J S <app.coder@outlook.in>",
   "license": "MIT",
   "scripts": {
