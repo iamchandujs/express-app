@@ -28,7 +28,7 @@ const main = async (): Promise<void> => {
   const app = Express()
   server.applyMiddleware({ app: app as any })
 
-  app.listen({ port: 3333 }, () => {
+  app.listen({ port: 8000 }, () => {
     const apiPath = `http://localhost:3333${server.graphqlPath}`
     console.log(`🚀 Server ready and listening at => ${apiPath}`)
   })
