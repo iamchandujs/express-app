@@ -15,11 +15,8 @@ export class CategoryResolver {
   };
 
   @Mutation(() => Category)
-  async createCategory (@Arg('data') { name, description }: CategoryInput): Promise<Category> {
-    const category = (await CategoryModel.create({
-      name,
-      description
-    })).save()
+  async createCategory (@Arg('data') data: CategoryInput): Promise<Category> {
+    const category = (await CategoryModel.create(data)).save()
     return await category
   };
 
