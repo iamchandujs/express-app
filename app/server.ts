@@ -18,7 +18,7 @@ const main = async (): Promise<void> => {
     validate: false
   })
 
-  // create mongoose connection
+  // create database connection
   await connect(process.env.MONGO_URL ?? '', {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -28,8 +28,10 @@ const main = async (): Promise<void> => {
   const app = Express()
   server.applyMiddleware({ app: app as any })
 
-  app.listen({ port: 8000 }, () => {
-    const apiPath = `http://localhost:3333${server.graphqlPath}`
+  const port: string = process.env.PORT ?? '8000'
+
+  app.listen({ port }, () => {
+    const apiPath = `http://localhost:${port}${server.graphqlPath}`
     console.log(`🚀 Server ready and listening at => ${apiPath}`)
   })
 }
